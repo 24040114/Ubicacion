@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipos de Ubicación</title>
+    <link rel="stylesheet" href="css/ubicaciones.css">
+</head>
+<body>
+
+<!-- Menú -->
+<nav class="main-nav">
+    <a href="index.html" class="nav-logo">🌍 Geolocalización</a>
+    <ul class="nav-menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="que-es.html">¿Qué es?</a></li>
+        <li><a href="tipos.html">Tipos</a></li>
+        <li><a href="aplicaciones.html">Aplicaciones</a></li>
+        <li><a href="ubicaciones.html" class="active">Ubicaciones</a></li>
+    </ul>
+</nav>
+
+<!-- Encabezado -->
+<header class="hero hero-small">
+    <h1>Tipos de Ubicación</h1>
+    <p>Formas en las que una aplicación puede saber dónde estamos</p>
+</header>
+
+<!-- Contenido -->
+<main class="content-wrapper">
+
+<section>
+<h2>¿Qué significa ubicación?</h2>
+<p>
+La ubicación es la forma en la que un sistema o aplicación identifica
+el lugar donde se encuentra una persona, un dispositivo o un objeto.
+Dependiendo de la tecnología usada, la ubicación puede ser muy exacta
+o solo aproximada.
+</p>
+</section>
+
+<section>
+<h2>Tipos de Ubicación</h2>
+
+<div class="card-grid">
+
+<div class="card">
+    <div class="card-icon">🎯</div>
+    <h3>Ubicación Absoluta</h3>
+    <p>
+        Es la forma más exacta de ubicación. Usa coordenadas geográficas
+        como latitud y longitud.
+    </p>
+    <p><strong>Ejemplo:</strong> Google Maps usa este tipo para mostrar
+    tu posición exacta en el mapa.</p>
+    <p><em>Ejemplo técnico:</em> CDMX (19.4326, -99.1332).</p>
+</div>
+
+<div class="card">
+    <div class="card-icon">📍</div>
+    <h3>Ubicación Relativa</h3>
+    <p>
+        Describe un lugar tomando como referencia otro punto conocido.
+        No es exacta, pero es fácil de entender.
+    </p>
+    <p><strong>Ejemplo:</strong> “Estoy cerca del centro comercial”.</p>
+</div>
+
+<div class="card">
+    <div class="card-icon">🏢</div>
+    <h3>Ubicación Simbólica</h3>
+    <p>
+        Se basa en nombres de lugares en lugar de coordenadas.
+        Es la forma más común que usamos las personas.
+    </p>
+    <p><strong>Ejemplo:</strong> “Saltillo, Coahuila”.</p>
+</div>
+
+<div class="card">
+    <div class="card-icon">🌍</div>
+    <h3>Ubicación Cívica</h3>
+    <p>
+        Usa una dirección completa: calle, número, colonia y ciudad.
+        Es muy utilizada en envíos y servicios.
+    </p>
+    <p><strong>Ejemplo:</strong> Pedir comida en Uber Eats.</p>
+</div>
+
+<div class="card">
+    <div class="card-icon">📡</div>
+    <h3>Ubicación de Red</h3>
+    <p>
+        Se obtiene usando la dirección IP del dispositivo.
+        No es muy precisa.
+    </p>
+    <p><strong>Ejemplo:</strong> Una página web que detecta tu país.</p>
+</div>
+
+<div class="card">
+    <div class="card-icon">🎨</div>
+    <h3>Ubicación Semántica</h3>
+    <p>
+        Describe el contexto del lugar en palabras simples,
+        sin datos técnicos.
+    </p>
+    <p><strong>Ejemplo:</strong> “Estoy en casa” o “en la escuela”.</p>
+</div>
+
+</div>
+</section>
+
+<section>
+<h2>Niveles de Precisión</h2>
+
+<p>
+No todas las ubicaciones son igual de exactas. Depende de la tecnología
+que se use:
+</p>
+
+<ul>
+    <li>🎯 <strong>Alta:</strong> GPS (usado por Google Maps o Waze)</li>
+    <li>📍 <strong>Media:</strong> WiFi y GPS estándar</li>
+    <li>🌐 <strong>Baja:</strong> Torres de telefonía celular</li>
+    <li>🗺️ <strong>Regional:</strong> IP (solo ciudad o país)</li>
+</ul>
+
+</section>
+
+<section>
+<h2>Ejemplos de uso en aplicaciones reales</h2>
+
+<ul>
+    <li>📱 <strong>Google Maps:</strong> ubicación absoluta con GPS</li>
+    <li>🚕 <strong>Uber:</strong> ubicación cívica y absoluta</li>
+    <li>📦 <strong>Amazon:</strong> ubicación cívica para entregas</li>
+    <li>🌦️ <strong>Apps del clima:</strong> ubicación aproximada</li>
+</ul>
+
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer>
+    <p>© 2026 Desarrollado por Alondra Iridany Saucedo Jimenez</p>
+</footer>
+
+</body>
+</html>

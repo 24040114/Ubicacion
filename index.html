@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi Ubicación</title>
+
+<link rel="stylesheet" href="css/index.css">
+
+
+
+<!-- Leaflet libreria que se encarga de mostrar el mapa -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="index.html">🌍 Inicio</a> |
+  <a href="que-es.html">¿Qué es?</a> |
+  <a href="tipos.html">Tipos</a> |
+  <a href="aplicaciones.html">Aplicaciones</a> |
+  <a href="api.html">API</a> |
+  <a href="clave-api.html">Clave API</a> |
+  <a href="ubicaciones.html">Ubicaciones</a>
+</nav>
+
+<hr>
+
+<h1>📍 Mi ubicación actual</h1>
+
+
+<button onclick="ubicacion()">Mostrar ubicación</button>
+
+<p id="info">📍 Te encuentras en: -</p>
+<p>Latitud: <span id="lat">-</span></p>
+<p>Longitud: <span id="lng">-</span></p>
+
+<div id="map" style="height:400px;"></div>
+
+<script>
+let map = L.map('map').setView([19.4326, -99.1332], 5)
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map)
+let marker = L.marker([19.4326, -99.1332]).addTo(map)
+
+//Aqui esta la funcion para obtener la ubicacion actual de tipo exacta
+function ubicacion() {
+  navigator.geolocation.getCurrentPosition(pos => {
+    const lat = pos.coords.latitude
+    const lng = pos.coords.longitude
+
+    map.setView([lat, lng], 14)
+    marker.setLatLng([lat, lng]).bindPopup("📍 Estás aquí").openPopup()
+
+    document.getElementById("lat").textContent = lat.toFixed(6)
+    document.getElementById("lng").textContent = lng.toFixed(6)
+
+    fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`)
+      .then(r => r.json())
+      .then(d => {
+        const ciudad = d.address.city || d.address.town || d.address.village
+        const estado = d.address.state || ""
+        document.getElementById("info").textContent =
+          `📍 Te encuentras en ${ciudad}, ${estado}`
+      })
+  })
+}
+</script>
+
+</body>
+</html>
+<footer></footer>
+    <p>© 2026 Desarrollado por Alondra Iridany Saucedo Jimenez</p>
+</footer>

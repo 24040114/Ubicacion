@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cómo generar una clave API</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/clave-api.css">
+</head>
+<body>
+
+<!-- Navegación -->
+<nav class="main-nav">
+    <a href="index.html" class="nav-logo">🌍 Geolocalización</a>
+    <ul class="nav-menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="que-es.html">¿Qué es?</a></li>
+        <li><a href="tipos.html">Tipos</a></li>
+        <li><a href="aplicaciones.html">Aplicaciones</a></li>
+        <li><a href="api.html">API</a></li>
+        <li><a href="clave-api.html" class="active">Clave API</a></li>
+        <li><a href="ubicaciones.html">Ubicaciones</a></li>
+    </ul>
+</nav>
+
+<!-- Encabezado -->
+<header class="hero hero-small">
+    <h1>Generar una Clave API</h1>
+    <p>Guía básica explicada paso a paso para entender cómo funciona una clave API</p>
+</header>
+
+<!-- Contenido -->
+<main class="content">
+    <h2>¿Qué es una clave API?</h2>
+
+    <p class="definition">
+        Una clave API es como una <strong>identificación digital</strong> que permite que una aplicación
+        se conecte a un servicio externo de forma segura.
+    </p>
+
+    <p>
+        En palabras simples, es un código que le dice al servidor:
+        <em>“Soy una aplicación autorizada y tengo permiso para usar este servicio”</em>.
+        Muchas aplicaciones usan claves API para acceder a mapas, clima, pagos, redes sociales
+        y otros servicios.
+    </p>
+
+    <h2>Pasos para generar una clave API</h2>
+
+    <section class="steps">
+
+        <article>
+            <h3>1️⃣ Registrarse en la plataforma</h3>
+            <p>
+                Primero debes crear una cuenta en la plataforma que ofrece la API,
+                como Google Maps, OpenStreetMap o Mapbox.
+                Esto es necesario para identificar quién está usando el servicio.
+            </p>
+        </article>
+
+        <article>
+            <h3>2️⃣ Entrar a la consola de desarrolladores</h3>
+            <p>
+                Después de registrarte, debes ingresar a la consola de desarrolladores.
+                Ahí es donde se administran los proyectos, las APIs y las claves.
+            </p>
+        </article>
+
+        <article>
+            <h3>3️⃣ Crear un proyecto</h3>
+            <p>
+                Un proyecto sirve para agrupar tu aplicación y sus configuraciones.
+                Algunas plataformas no permiten generar una clave sin un proyecto creado.
+            </p>
+        </article>
+
+        <article>
+            <h3>4️⃣ Generar la clave API</h3>
+            <p>
+                El sistema genera automáticamente una cadena de letras y números.
+                Esa cadena es tu clave API y será usada en tu código.
+            </p>
+            <code>AIzaSyBxD8f2kE9L3mNoPqRsTuVwXyZ1aBcDeFg</code>
+        </article>
+
+        <article>
+            <h3>5️⃣ Configurar la seguridad</h3>
+            <p>
+                Para evitar que otras personas usen tu clave sin permiso,
+                es importante aplicar restricciones de seguridad.
+            </p>
+            <ul>
+                <li>Limitar la clave a ciertos sitios web o apps</li>
+                <li>Permitir solo APIs específicas</li>
+                <li>Definir límites de uso diario</li>
+            </ul>
+        </article>
+
+        <article>
+            <h3>6️⃣ Usar la clave en el código</h3>
+            <p>
+                Finalmente, la clave se agrega al código para hacer solicitudes a la API.
+                Por ejemplo, en JavaScript:
+            </p>
+            <code>
+fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=Mexico&key=TU_API_KEY`)
+  .then(res => res.json())
+  .then(data => console.log(data));
+            </code>
+            <p>
+                Aquí la aplicación manda una solicitud a la API y recibe una respuesta
+                con información de la ubicación.
+            </p>
+        </article>
+
+        <article>
+            <h3>7️⃣ Monitorear el uso</h3>
+            <p>
+                En la consola del proveedor puedes revisar cuántas veces se usa la clave,
+                detectar errores y evitar consumos innecesarios.
+            </p>
+        </article>
+
+    </section>
+
+    <section class="alert">
+        <strong>⚠️ Buenas prácticas</strong>
+        <ul>
+            <li>No compartir la clave API públicamente</li>
+            <li>No subirla directamente a GitHub</li>
+            <li>Usar variables de entorno cuando sea posible</li>
+            <li>Revisar el uso con frecuencia</li>
+        </ul>
+    </section>
+</main>
+
+<!-- Pie de página -->
+<footer>
+    <p>© 2026 - Desarrollado por Alondra Iridany Saucedo Jimenez</p>
+</footer>
+
+</body>
+</html>

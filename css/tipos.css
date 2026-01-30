@@ -1,0 +1,273 @@
+/* ===================================
+   VARIABLES Y RESET
+=================================== */
+:root {
+    --blue-dark: #0f2027;
+    --blue-mid: #203a43;
+    --blue-light: #2c5364;
+    --accent-blue: #4A90E2;
+    --accent-green: #52C273;
+    --star-yellow: #FFD700;
+    --text-light: #e0f2ff;
+    --shadow: rgba(0,0,0,.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===================================
+   FONDO GALÁCTICO + ESTRELLAS
+=================================== */
+body {
+    font-family: 'Source Sans 3', sans-serif;
+    min-height: 100vh;
+    color: var(--text-light);
+    background: radial-gradient(circle at top, #3a7bd5, #1e3c72 45%, #0f2027 80%);
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Estrellas blancas */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(2px 2px at 20% 30%, white, transparent),
+        radial-gradient(1px 1px at 70% 20%, white, transparent),
+        radial-gradient(2px 2px at 40% 80%, white, transparent),
+        radial-gradient(1px 1px at 90% 60%, white, transparent),
+        radial-gradient(2px 2px at 10% 70%, white, transparent);
+    background-size: 220px 220px;
+    animation: starsMove 35s linear infinite;
+    z-index: -2;
+}
+
+/* Estrellas amarillas */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(2px 2px at 30% 40%, var(--star-yellow), transparent),
+        radial-gradient(1px 1px at 80% 50%, var(--star-yellow), transparent),
+        radial-gradient(2px 2px at 60% 10%, var(--star-yellow), transparent);
+    background-size: 260px 260px;
+    animation: starsMove 50s linear infinite reverse;
+    opacity: .8;
+    z-index: -1;
+}
+
+@keyframes starsMove {
+    from { transform: translateY(0); }
+    to { transform: translateY(-220px); }
+}
+
+/* ===================================
+   NAVEGACIÓN
+=================================== */
+.main-nav {
+    background: linear-gradient(135deg, var(--blue-dark), var(--blue-mid), var(--blue-light));
+    box-shadow: 0 10px 35px rgba(0,0,0,.6);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: .5rem 1.2rem;
+    border-radius: 30px;
+    font-weight: 600;
+    background: rgba(255,255,255,.08);
+    transition: all .4s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: rgba(255,255,255,.25);
+    box-shadow: 0 0 20px rgba(255,215,0,.6);
+    transform: translateY(-2px);
+}
+
+/* ===================================
+   HERO
+=================================== */
+.hero {
+    text-align: center;
+    padding: 4rem 1.5rem 3rem;
+}
+
+.hero-small {
+    padding: 3rem 1.5rem;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    letter-spacing: 1px;
+    color: #9fd3ff;
+    text-shadow:
+        0 0 15px rgba(255,215,0,.4),
+        0 0 40px rgba(79,172,254,.3);
+    animation: fadeUp .9s ease;
+}
+
+.subtitle,
+.hero p {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    opacity: .9;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===================================
+   CONTENEDOR DE CONTENIDO
+=================================== */
+.content-wrapper {
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem 2rem 4rem;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.section-number {
+    font-size: 3rem;
+    font-weight: 900;
+    color: rgba(255,215,0,.3);
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #9fd3ff;
+}
+
+/* ===================================
+   TARJETAS (TIPOS)
+=================================== */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: rgba(255,255,255,.08);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.5),
+        0 0 25px rgba(255,215,0,.15);
+    transition: all .4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: "✨";
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    opacity: .3;
+    font-size: 1.5rem;
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: .8rem;
+}
+
+.card-title {
+    font-size: 1.4rem;
+    margin-bottom: .6rem;
+    color: var(--accent-green);
+}
+
+.card-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: .95;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.04);
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.6),
+        0 0 40px rgba(255,215,0,.5);
+}
+
+/* ===================================
+   FOOTER
+=================================== */
+footer {
+    background: linear-gradient(135deg, var(--blue-dark), var(--blue-mid), var(--blue-light));
+    padding: 2.5rem 1rem;
+    text-align: center;
+    box-shadow: 0 -10px 40px rgba(0,0,0,.6);
+}
+
+footer p {
+    margin: .4rem 0;
+    font-size: 1rem;
+    opacity: .9;
+}
+
+/* ===================================
+   RESPONSIVE
+=================================== */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
